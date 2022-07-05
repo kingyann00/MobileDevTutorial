@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HON dice Application</string>
+    <string name="numberText"></string>
+    <string name="rollBtn">Button</string>
+</resources>
