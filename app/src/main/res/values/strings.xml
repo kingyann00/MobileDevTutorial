@@ -3,7 +3,7 @@
     <string name="numberText"></string>
     <string name="rollBtn">Button</string>
     <string name="editButton">Button</string>
-    <string name="playerName">null</string>
+    <string name="playerName">Enter your name</string>
     <string name="paragraphText">PARAGRAPH STRUCTURE
 Most paragraphs in an essay have a three-part structure—introduction, body, and conclusion. You can see this structure in paragraphs whether they are narrating, describing, comparing, contrasting, or analyzing information. Each part of the paragraph plays an important role in communicating your meaning to your reader.
 Introduction: the first section of a paragraph; should include the topic sentence and any other sentences at the beginning of the paragraph that give background information or provide a transition.
