@@ -13,26 +13,26 @@ class MainActivity : AppCompatActivity() {
     lateinit var dice_Img:ImageView
 
     lateinit var binding: ActivityMainBinding
+    private  val gameinfo: GameInfo = GameInfo(playerName = "Hon", totalScore = "0")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this,
             R.layout.activity_main)
-        dice_Img = findViewById(R.id.diceImg)
 
+        binding.gameInfo = gameinfo
 
         val rollButton: Button = findViewById(R.id.rollBtn);
         val etButton: Button = findViewById(R.id.editButton);
-        rollButton.setOnClickListener{rollDice()}
+        rollButton.setOnClickListener{rollDice(it)}
 
         etButton.setOnClickListener{editPlayer(it)}
     }
     private  fun editPlayer(view: View){
 
         binding.apply {
-            playerName.text = editPlayerNameET.text.toString()
-            editPlayerNameET.text.clear()
-            editPlayerNameET.clearFocus()
+            gameInfo?.playerName = editPlayerNameET.text.toString()
+            invalidateAll()
         }
 
 
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun rollDice(){
+    private fun rollDice(view: View){
         Toast.makeText(this,"Roll!",Toast.LENGTH_SHORT).show()
 
 
@@ -62,10 +62,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        binding.diceImg.setImageResource(diceResource)
 
+        binding.apply {
+            diceImg.setImageResource(diceResource)
+            gameInfo?.totalScore = (Integer.parseInt(binding.gameInfo?.totalScore) + randomNum).toString()
+            invalidateAll()
+        }
 
-
-        binding.numberTxt.text = randomNum.toString()
 }
 }

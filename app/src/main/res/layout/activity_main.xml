@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="GameInfo"
+            type="com.example.myapplication.GameInfo" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +35,7 @@
             android:layout_height="wrap_content"
             android:linksClickable="false"
             android:longClickable="false"
-            android:text="@string/playerName">
+            android:text="@={GameInfo.playerName}">
 
         </TextView>
         <TextView
@@ -38,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/numberText" />
+            android:text="@={GameInfo.totalScore}" />
 
         <ImageView
             android:id="@+id/diceImg"
